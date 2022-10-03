@@ -1,0 +1,97 @@
+#!/usr/local/bin/php
+<?php
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+$rootDir = dirname(__DIR__);
+
+if (!is_file($rootDir . '/vendor/autoload.php')) {
+    $rootDir = dirname(__DIR__, 4);
+}
+
+require $rootDir . '/vendor/autoload.php';
+
+$availableCommands = [
+    'generate' => fn($args) => count($args) === 0 ? generateCollectionsByConfigFile() : generateCollectionByParameters($args),
+];
+
+if (count($argv) < 2) {
+    die("Usage: vendor/bin/php-collections generate <--class=> <--generated-class-name=> <--path=> <--namespace=> <--template=> <--parent-class=> <--interfaces=> <--traits=>\n");
+}
+
+if (!isset($availableCommands[$argv[1]])) {
+    die("Usage: vendor/bin/php-collections generate <--class=> <--generated-class-name=> <--path=> <--namespace=> <--template=> <--parent-class=> <--interfaces=> <--traits=>\n");
+}
+
+$command = $availableCommands[$argv[1]];
+$command(prepareArguments($argv));
+
+function prepareArguments(array $arguments): array {
+    $arguments = array_splice($arguments, 2);
+    $result = [];
+
+    foreach ($arguments as $argument) {
+        [$key, $value] = explode('=', $argument);
+        $key = str_replace('--', '', $key);
+        $result[$key] = $value;
+    }
+
+    return $result;
+}
+
+function generateCollectionsByConfigFile(): bool {
+    die("Not implemented yet");
+}
+
+function generateCollectionByParameters($arguments): bool
+{
+    if (empty($arguments['class'])) {
+        die("Can't generate collection without --class given\n");
+    }
+
+    $generator = new \Nkopylov\PhpCollections\Generator($arguments['class']);
+
+    if (!empty($arguments['generated-class-name'])) {
+        $generator->setCollectionClassName($arguments['generated-class-name']);
+    }
+
+    if (!empty($arguments['namespace'])) {
+        $generator->setCustomNamespace($arguments['namespace']);
+    }
+
+    if (!empty($arguments['template'])) {
+        $generator->setCustomTemplate($arguments['template']);
+    }
+
+    if (!empty($arguments['parent-class'])) {
+        $generator->setParentClass($arguments['parent-class']);
+    }
+
+    if (!empty($arguments['interfaces'])) {
+        foreach (explode(',', $arguments['interfaces']) as $interface) {
+            $generator->addInterface(trim($interface));
+        }
+    }
+
+    if (!empty($arguments['traits'])) {
+        foreach (explode(',', $arguments['traits']) as $trait) {
+            $generator->addTrait(trim($trait));
+        }
+    }
+
+    $command = new \Nkopylov\PhpCollections\CreateCollectionCommand($generator);
+
+    if (!empty($arguments['path'])) {
+        $command->setCustomPath($arguments['path']);
+    }
+
+    if ($command->createCollectionFile()) {
+        echo "Collection " . $generator->getCollectionClassName() . " successfully created\n";
+        return true;
+    }
+    echo "Failed to created collection\n";
+
+    return false;
+}

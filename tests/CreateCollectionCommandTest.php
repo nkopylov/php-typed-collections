@@ -17,11 +17,13 @@ use PHPUnit\Framework\TestCase;
 class CreateCollectionCommandTest extends TestCase
 {
     private const FILENAME = __DIR__ . '/TestCollection.php';
+    private const FILENAME_WITH_CUSTOMPATH = __DIR__ . '/AnotherNamespace/TestCollection1.php';
 
     public static function tearDownAfterClass(): void
     {
         parent::tearDownAfterClass();
         unlink(self::FILENAME);
+        unlink(self::FILENAME_WITH_CUSTOMPATH);
     }
 
     public function testCollection(): void
@@ -38,5 +40,23 @@ class CreateCollectionCommandTest extends TestCase
         $collection = TestCollection::create();
 
         self::assertInstanceOf(TestCollection::class, $collection);
+    }
+
+    public function testCreateCollectionInCustomPath(): void
+    {
+        $generator = new Generator(
+            TestClass::class,
+        );
+
+        $generator->setCollectionClassName('TestCollection1');
+
+        $command = new CreateCollectionCommand($generator);
+        $command->setCustomPath(__DIR__ . "/AnotherNamespace/");
+        $command->createCollectionFile();
+
+        require self::FILENAME_WITH_CUSTOMPATH;
+        $collection = TestCollection1::create();
+
+        self::assertInstanceOf(TestCollection1::class, $collection);
     }
 }

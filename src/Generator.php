@@ -27,7 +27,7 @@ class Generator
 
         $reflectionClass = new \ReflectionClass($collectableClass);
         $this->namespace = $reflectionClass->getNamespaceName();
-        $this->collectionClassName = $reflectionClass->getName() . "Collection";
+        $this->collectionClassName = $reflectionClass->getShortName() . "Collection";
 
         if ($reflectionClass->implementsInterface(Mappable::class)) {
             $this->mapperFunction = "CollectionEntity::getMapperFunction()";

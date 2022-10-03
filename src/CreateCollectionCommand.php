@@ -5,15 +5,22 @@ namespace Nkopylov\PhpCollections;
 class CreateCollectionCommand
 {
     private Generator $generator;
+    private string $path;
 
     public function __construct(Generator $generator)
     {
         $this->generator = $generator;
+        $this->path = $this->revealPath();
+    }
+
+    public function setCustomPath(string $path)
+    {
+        $this->path = $path;
     }
 
     public function createCollectionFile(): bool
     {
-        $path = $this->revealPath();
+        $path = $this->path;
         if (!is_writable($path)) {
             throw new \LogicException("Can't write to $path. Please check file system permissions");
         }
