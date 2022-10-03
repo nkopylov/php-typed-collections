@@ -35,5 +35,8 @@
     },
     "scripts": {
         "test": "phpunit"
-    }
+    },
+    "bin": [
+        "bin/php-collections"
+    ]
 }

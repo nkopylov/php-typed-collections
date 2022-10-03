@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67eb9f6e-3a6b-4c1c-8cce-ecb2c73b79ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/php-collections" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/cache/phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/build/cache/phpunit.result.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CreateCollectionCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreateCollectionCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Generator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CreateCollectionCommandTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CreateCollectionCommandTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +122,7 @@
       <workItem from="1621017432720" duration="14000" />
       <workItem from="1624738081050" duration="1766000" />
       <workItem from="1624741460873" duration="92000" />
-      <workItem from="1664712318161" duration="16209000" />
+      <workItem from="1664712318161" duration="16245000" />
     </task>
     <servers />
   </component>
