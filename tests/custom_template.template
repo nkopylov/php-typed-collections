@@ -1,0 +1,13 @@
+<?php
+namespace {{ namespace }};
+{{ classDefinition }}
+    public static function create(): self
+    {
+        return new static();
+    }
+
+    public function sayHello(): string
+    {
+        return "Hello from the custom template!";
+    }
+}

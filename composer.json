@@ -1,0 +1,39 @@
+{
+    "name": "nkopylov/php-collections",
+    "type": "library",
+    "description": "Generatable statically typed collections for PHP entities",
+    "keywords": [
+        "collections",
+        "php"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Nikolay Kopylov",
+            "email": "nickkopylov@gmail.com",
+            "homepage": "https://nkopylov.me/"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Nkopylov\\PhpCollections\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nkopylov\\Test\\PhpCollections\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
