@@ -1,4 +1,4 @@
-# nkopylov/php-collections Changelog
+# nkopylov/php-typed-collections Changelog
 
 All notable changes to this project will be documented in this file.
 
@@ -13,5 +13,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * CLI command to generate collection
 
 
-[Unreleased]: https://github.com/nkopylov/php-collections/compare/1.0.0...HEAD
-[1.0.0]: https://github.com/nkopylov/php-collections/commits/1.0.0
+[Unreleased]: https://github.com/nkopylov/php-typed-collections/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/nkopylov/php-typed-collections/commits/1.0.0

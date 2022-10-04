@@ -1,5 +1,5 @@
 {
-    "name": "nkopylov/php-collections",
+    "name": "nkopylov/php-typed-collections",
     "type": "library",
     "description": "Generatable statically typed collections for PHP entities",
     "keywords": [
@@ -37,6 +37,6 @@
         "test": "phpunit"
     },
     "bin": [
-        "bin/php-collections"
+        "bin/typed-collections"
     ]
 }

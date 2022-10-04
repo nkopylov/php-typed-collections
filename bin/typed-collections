@@ -18,11 +18,11 @@ $availableCommands = [
 ];
 
 if (count($argv) < 2) {
-    die("Usage: vendor/bin/php-collections generate <--class=> <--generated-class-name=> <--path=> <--namespace=> <--template=> <--parent-class=> <--interfaces=> <--traits=>\n");
+    die("Usage: vendor/bin/typed-collections generate <--class=> <--generated-class-name=> <--path=> <--namespace=> <--template=> <--parent-class=> <--interfaces=> <--traits=>\n");
 }
 
 if (!isset($availableCommands[$argv[1]])) {
-    die("Usage: vendor/bin/php-collections generate <--class=> <--generated-class-name=> <--path=> <--namespace=> <--template=> <--parent-class=> <--interfaces=> <--traits=>\n");
+    die("Usage: vendor/bin/typed-collections generate <--class=> <--generated-class-name=> <--path=> <--namespace=> <--template=> <--parent-class=> <--interfaces=> <--traits=>\n");
 }
 
 $command = $availableCommands[$argv[1]];
