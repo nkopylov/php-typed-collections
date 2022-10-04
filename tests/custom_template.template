@@ -1,6 +1,6 @@
 <?php
-namespace {{ namespace }};
-{{ classDefinition }}
+{{ namespaceStatement }}
+{{ classStatement }}
     public static function create(): self
     {
         return new static();

@@ -1,0 +1,12 @@
+[] Format generated file?
+[] Virtual FS in tests instead of real files generation?
+[] Test collection methods
+[] Use some CLI library to provide better CLI interface and process edge-cases
+[] Implement configuration file support - describe all project collections in the file, use it to regenerate.
+[] Implement support of control sum hash. Validate control sum to check if collection was manually changed before regeneration
+[] PHP >7.4 <8 support
+[] Configure Travis CI for library
+[] Configure linters for library
+[] Configure static analysis for library
+[] PHPStorm fast command
+[] Typed key

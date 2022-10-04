@@ -92,14 +92,12 @@ class Generator
     public function generate(): string
     {
         $templateContents = file_get_contents($this->template);
-        $hashSum = md5($templateContents);
 
         $substitutions = [
-            "{{ classDefinition }}" => $this->generateClassDefinition(),
+            "{{ classStatement }}" => $this->generateClassDefinition(),
             "{{ mapBy }}" => $this->mapperFunction,
             "{{ generationTime }}" => $this->getGenerationTime(),
-            "{{ hashSum }}" => $hashSum,
-            "{{ namespace }}" => $this->namespace,
+            "{{ namespaceStatement }}" => $this->generateNamespaceStatement(),
             "{{ collectableClass }}" => $this->collectableClass,
         ];
 
@@ -163,5 +161,14 @@ class Generator
     private function getGenerationTime(): string
     {
         return (new \DateTime())->format("Y-m-d H:i:s");
+    }
+
+    private function generateNamespaceStatement(): string
+    {
+        if ($this->namespace !== "") {
+            return "namespace $this->namespace;";
+        }
+
+        return "";
     }
 }
