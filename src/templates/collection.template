@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 {{ namespaceStatement }}
 
-use JetBrains\PhpStorm\Pure;
 use {{ collectableClass }} as CollectionEntity;
 
 /**
