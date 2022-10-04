@@ -11,10 +11,7 @@ if (!is_file($rootDir . '/vendor/autoload.php')) {
     $rootDir = dirname(__DIR__, 4);
 }
 
-die(var_dump($rootDir . '/vendor/autoload.php'));
-
 require $rootDir . '/vendor/autoload.php';
-
 
 $availableCommands = [
     'generate' => fn($args) => count($args) === 0 ? generateCollectionsByConfigFile() : generateCollectionByParameters($args),
