@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Default template for static typed generatable collections
 * Generator
 * CLI command to generate collection
+* Mappable and ObjectWithIdentifieir interfaces for key mapping
 
 
 [Unreleased]: https://github.com/nkopylov/php-typed-collections/compare/1.0.0...HEAD
