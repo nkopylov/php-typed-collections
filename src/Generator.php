@@ -153,6 +153,10 @@ class Generator
 
     private function removeNamespaceFromIdentifierIfNeeded(string $objectName): string
     {
+        if (empty($this->namespace)) {
+            return $objectName;
+        }
+
         $isInTheSameNamespace = substr_count($objectName, $this->namespace) > 0;
         $objectName = str_replace($this->namespace, "", $objectName);
         return $isInTheSameNamespace ? trim($objectName, '\\') : "\\" . $objectName;
